@@ -16,6 +16,8 @@
     <!-- UIKit JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 </head>
 
 <body>
@@ -38,6 +40,7 @@
                     </div>
                 </div>
                 <div class="uk-margin">
+                    <button id="submit" class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Let's
                     <button id="submit" 
                     uk-toggle="target: " type="button"
                     class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Let's
@@ -45,17 +48,22 @@
                 </div>
                 <!-- <div class="uk-text-small uk-text-center">
                 Not registered? <a href="#">Create an account</a>
+            
+
                 </div> -->
             </form>
         </div>
     </div>
 
     <!--Pixabay display-->
+
     <div id="pixabay1" class="card" style="width: 500px;">
         <div class="card-title">
             <h1>Location API</h1>
         </div>
         <div class="card-body">
+            <div id='location-name'></div>
+
             <!--unsplash DIV to start lightbox-->
             <div uk-lightbox id="locations"></div>
         </div>
@@ -65,21 +73,16 @@
         <div class="card-title">
             <h1>Relative API</h1>
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div id='hash-0'></div>
-
-                <div id='hash-1'></div>
-
-                <div id='hash-2'></div>
-                <div id='hash-3'></div>
-
-                <div id='hash-4'></div>
-                <div id='hash-5'></div>
+        <!-- <div class="card-body"> -->
+            <div uk-lightbox id='hash-0'>
+                
             </div>
-        </div>
-        <br>
-        <br>
+
+    <!--unsplash DIV to start lightbox-->
+    <!-- <div uk-lightbox id="locations"></div> -->
+
+
+
 
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

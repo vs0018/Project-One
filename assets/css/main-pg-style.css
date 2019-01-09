@@ -1,3 +1,25 @@
+/* body {
+   background-image: url('../images/ep_naturalblack.png');
+
+} */
+/* img {
+   width: 350px;
+   height: 350px;
+   margin-bottom: 10px;
+
+} */
+
+.uk-overlay {
+   width: 25%;
+   height: 70px;
+   padding: 5px;
+   margin-left: 40px;
+   font-size: 15px;
+}
+#icon {
+   width: 50px;
+   height: 50px;
+}
 html {
     background-color: black
 }
@@ -22,3 +44,4 @@ html {
     background-color: gainsboro;
     color: black;
 }
+
