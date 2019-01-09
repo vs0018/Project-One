@@ -16,9 +16,6 @@ $(document).ready(function () {
 
     ];
 
-
-    // encodeURI() : for be able to consider the spaces for the list in words 
-
     function getLocationImage(location) {
 
     var i;
@@ -68,9 +65,10 @@ $(document).ready(function () {
             
                 div.appendChild(anchor);
             
-            })
+            });
 
         };
+    };
 
 //pixabay GET
             var key = '11184612-ba39f46d40d6f65f978010ca1';
@@ -82,7 +80,7 @@ $(document).ready(function () {
             })
             .done(function(response){
                 
-                console.log( response);
+                console.log(response);
                 console.log( 'this is pixabay');
                 
                 var zero=response.hits[0].largeImageURL;
@@ -99,27 +97,17 @@ $(document).ready(function () {
                 $('#hash-4').html('<img src= ' + qua + "/>");
                 $('#hash-5').html('<img src= ' + five + "/>");
 
-        
-        
-            })
+            });
 
-    }
-
-//calls unspalsh function
+//calls API GET function
 getLocationImage();
 
 //login modal start
-UIkit.modal('#myModal').show();
+    UIkit.modal('#myModal').show();
 
-//submit button logic
-// $("#submit").on("click", function(){
-//     UIkit.lightboxPanel("#locations").show(0);
+//submit button
+    var lightbox = document.getElementById('locations')
+    
+    UIkit.lightbox(lightbox).show(0)
 
-
-// })
-
-})
-
-
-
-
+});
