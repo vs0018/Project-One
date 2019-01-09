@@ -2,6 +2,7 @@
    background-image: url('../images/ep_naturalblack.png');
 
 } */
+
 /* img {
    width: 350px;
    height: 350px;
@@ -20,20 +21,21 @@
    width: 50px;
    height: 50px;
 }
+
 html {
     background-color: black
 }
 
-/* #pixabay1 {
+#unsplash {
     display: none
 }
 
-#pixabay2 {
+#pixabay {
     display: none
 }
 
-#locations {
-    display: none
+/* #locations {
+display: none
 } */
 
 #modalBody {

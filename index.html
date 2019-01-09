@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <title>Dream Meets Swipe</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- UIKit CSS -->
@@ -16,11 +18,49 @@
     <!-- UIKit JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+    
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 </head>
 
 <body>
+<!--HEADER-->
+    <header>
+            <div class="uk-container">
+                <nav class="uk-navbar-transparent" data-uk-navbar>
+                    <div class="uk-navbar-left">
+                        <a class="uk-navbar-item uk-logo" href="#">D2S</a>
+                    </div>
+                    <div class="uk-navbar-center uk-visible@m">
+                        <ul class="uk-navbar-nav">
+                            <li class="uk-active"><a href="index.html">Swipe</a></li>
+                            <li><a href="results.html">Matches</a></li>
+                        </ul>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <ul class="uk-navbar-nav">
+                            <li>
+                                <a href="#" data-uk-icon="icon:user"></a>
+                                <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        <li class="uk-nav-header uk-text-small uk-text-primary">YOUR ACCOUNT</li>
+                                        <li><a href="#"><span data-uk-icon="icon: info"></span> Summary</a></li>
+                                        <li><a href="#"><span data-uk-icon="icon: refresh"></span> Payment Info</a></li>
+                                        <li><a href="#"><span data-uk-icon="icon: settings"></span> Configuration</a></li>
+                                        <li class="uk-nav-divider"></li>
+                                        <li><a href="#"><span data-uk-icon="icon: image"></span> Your Destinations</a></li>
+                                        <li class="uk-nav-divider"></li>
+                                        <li><a href="#"><span data-uk-icon="icon: sign-out"></span> Logout</a></li>
+    
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    <!--/HEADER-->
 
     <!--Login modal-->
     <div uk-modal id="myModal">
@@ -40,54 +80,53 @@
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <button id="submit" class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Let's
                     <button id="submit" 
-                    uk-toggle="target: " type="button"
                     class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Let's
                         Go!</button>
                 </div>
                 <!-- <div class="uk-text-small uk-text-center">
                 Not registered? <a href="#">Create an account</a>
-            
-
                 </div> -->
             </form>
         </div>
     </div>
 
-    <!--Pixabay display-->
-
-    <div id="pixabay1" class="card" style="width: 500px;">
+    <!--Unsplash display-->
+    <div id="unsplash" class="card" style="width: 500px;">
         <div class="card-title">
             <h1>Location API</h1>
         </div>
         <div class="card-body">
-            <div id='location-name'></div>
-
             <!--unsplash DIV to start lightbox-->
             <div uk-lightbox id="locations"></div>
         </div>
     </div>
     <br>
-    <div id="pixabay2" class="card" style="width: auto; height: auto;">
+    <!--Pixabay display-->
+    <div id="pixabay" class="card" style="width: auto; height: auto;">
         <div class="card-title">
             <h1>Relative API</h1>
         </div>
-        <!-- <div class="card-body"> -->
-            <div uk-lightbox id='hash-0'>
-                
+        <div class="card-body">
+            <div class="row">
+                <div id='hash-0'></div>
+
+                <div id='hash-1'></div>
+
+                <div id='hash-2'></div>
+                <div id='hash-3'></div>
+
+                <div id='hash-4'></div>
+                <div id='hash-5'></div>
             </div>
-
-    <!--unsplash DIV to start lightbox-->
-    <!-- <div uk-lightbox id="locations"></div> -->
-
-
-
+        </div>
+        <br>
+        <br>
 
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
-
+        <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
 
         <!-- internal JS -->
         <script src="assets/javascript/project.js"></script>
