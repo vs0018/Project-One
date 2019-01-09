@@ -1,7 +1,24 @@
-/* img {
-   width: 400px;
-   height: 425px;
-   margin-left: 5px;
-   margin-bottom: 2px; 
+html {
+    background-color: black
+}
+
+/* #pixabay1 {
+    display: none
+}
+
+#pixabay2 {
+    display: none
+}
+
+#locations {
+    display: none
 } */
 
+#modalBody {
+    background-color: azure;
+}
+
+#submit {
+    background-color: gainsboro;
+    color: black;
+}

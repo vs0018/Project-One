@@ -44,8 +44,6 @@ $(document).ready(function () {
 
                 console.log(response.location);
                 var src = response.urls.regular;
-                // $('#image').html('<img src= ' + src + "/>");
-                // $('#location-name').html("<h1>" + location + "</h1>");
 
                 var anchor = document.createElement("a");
 
@@ -66,14 +64,15 @@ $(document).ready(function () {
 
                 anchor.appendChild(image);
 
-                var div = document.getElementById('locations');
+                var div = document.getElementById("locations");
             
                 div.appendChild(anchor);
             
             })
- feature/index-build
+
         };
 
+//pixabay GET
             var key = '11184612-ba39f46d40d6f65f978010ca1';
             var url = 'https://pixabay.com/api/?key=' + key + '&q=' +location + '&image_type=photo&per_page=6'
             $.ajax({
@@ -103,27 +102,21 @@ $(document).ready(function () {
         
         
             })
- master
+
     }
-//  
+
+//calls unspalsh function
+getLocationImage();
+
+//login modal start
+UIkit.modal('#myModal').show();
+
+//submit button logic
+// $("#submit").on("click", function(){
+//     UIkit.lightboxPanel("#locations").show(0);
 
 
-
-    getLocationImage();
- feature/index-build
-
-    $("#myModal").show();
-})
-
-master
-
-
-
-
-
-
-    
-
+// })
 
 })
 

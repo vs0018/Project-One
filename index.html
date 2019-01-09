@@ -7,58 +7,60 @@
     <title>Dream Meets Swipe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- UIKit CSS -->
+    <!-- UIKit CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
-    
-<!-- Our CSS stylesheet -->
+
+    <!-- Our CSS stylesheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main-pg-style.css" />
 
-<!-- UIKit JS-->
+    <!-- UIKit JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
 </head>
 
 <body>
-feature/index-build
-<div uk-modal id="myModal">
-    <div class="uk-modal-dialog uk-modal-body uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-        <h3 class="uk-modal-title uk-card-title uk-text-center">Welcome!</h3>
-        <form>
-            <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                    <input class="uk-input uk-form-large" type="text">
+
+    <!--Login modal-->
+    <div uk-modal id="myModal">
+        <div id="modalBody" class="uk-modal-dialog uk-modal-body uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+            <h3 class="uk-modal-title uk-card-title uk-text-center">Welcome!</h3>
+            <form>
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input id="name" class="uk-input uk-form-large" type="text">
+                    </div>
                 </div>
-            </div>
-            <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                    <input class="uk-input uk-form-large" type="password">	
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                        <input id="email" class="uk-input uk-form-large" type="password">
+                    </div>
                 </div>
-            </div>
-            <div class="uk-margin">
-                <button class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
-            </div>
-            <div class="uk-text-small uk-text-center">
+                <div class="uk-margin">
+                    <button id="submit" class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Let's
+                        Go!</button>
+                </div>
+                <!-- <div class="uk-text-small uk-text-center">
                 Not registered? <a href="#">Create an account</a>
-            </div>
-        </form>
+            </div> -->
+            </form>
+        </div>
     </div>
-</div>
 
-
-    <div class="card" style="width: 500px;">
+    <!--Pixabay display-->
+    <div id="pixabay1" class="card" style="width: 500px;">
         <div class="card-title">
             <h1>Location API</h1>
         </div>
         <div class="card-body">
             <div id='location-name'></div>
-            <div id='image'></div>
-
+            <!--unsplash DIV to start lightbox-->
+            <div uk-lightbox id="locations"></div>
         </div>
     </div>
     <br>
-    <div class="card" style="width: auto; height: auto;">
+    <div id="pixabay2" class="card" style="width: auto; height: auto;">
         <div class="card-title">
             <h1>Relative API</h1>
         </div>
@@ -75,33 +77,18 @@ feature/index-build
                 <div id='hash-5'></div>
             </div>
         </div>
-
-
- master
-
-    <div uk-lightbox id="locations"></div>
-
-
-feature/index-build
-<!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-
-
+        <br>
+        <br>
+        <!--unsplash DIV to start lightbox-->
+        <!-- <div uk-lightbox id="locations"></div> -->
 
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
 
-master
-
 
         <!-- internal JS -->
         <script src="assets/javascript/project.js"></script>
-
-
-<!-- internal JS -->
-    <script src="assets/javascript/project.js"></script>
-    <script src="assets/javascript/swipe.js"></script>
 
 </body>
 
