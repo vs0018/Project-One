@@ -1,22 +1,21 @@
+//array variables for saving current img src code and R swipes
+var currentImg = [];
+var savedLocations = [];
+var idNum = 0;
+
 $(document).ready(function () {
 
     // variable list for unsplash spots 
     var vacations = [
-        "hawaii", "thailand", "barcelona,spain",
-        "toronto", "japan", "morocco",
-        "santa barbara", "san francisco", "the maldives",
-        'prague, czech republic', "amalfi coast, Italy", "rome",
-        "Great Barrier Reef", "Florence, Italy", "Rio de Janeiro",
-        "Hong Kong", "Sydney", "santorini, greece", 'new york city',
-        'dubai', ' london', 'paris', 'wroclaw, poland',
-        'hvar island, croatia', 'riga, latvia', 'budapest, hungary',
-        'moscow, russia', 'lisbon, portugal', 'bohinij, slovenia',
-        'vienna, austria', 'amsterdam, netherlands', "los angeles, california",
-        'ohio', 'baja mexico', 'peru', 'disneyland',
-        'jalisco, mexico', 'jamaica', 'germany', 'switzerland'
+        "Hawaii", "Thailand", "Spain",
+        "Toronto", "Japan", "California", "Czech Republic", "Italy", "Brazil",
+        "Australia", "Greece", "New York",
+        "Saudi Arabia", "London", "France", "Poland",
+        "Croatia", "Latvia", "Hungary",
+        "Russia", "Portugal", "Slovenia",
+        "Austria", "Netherlands", "Mexico", "Peru", "Florida",
+        "Jamaica", "Germany", "Switzerland"
     ];
-
-    // var trashCan = [""];
 
     // Initialize Firebase
     var config = {
@@ -84,108 +83,54 @@ $(document).ready(function () {
                 //console logs the entire response object
                 console.log(response);
 
-                //console logs item's description
-                console.log(response.description);
-    
-                //console logs location name
-                console.log(response.location.name);
-                console.log(response.location);
+                    //stores URL in a variable
+                    var src = response.urls.regular;
 
-                //stores URL in a variable
-                var src = response.urls.regular;
+                    //creates anchor element
+                    var anchor = document.createElement("a");
+                    
+                    //creates URL attribute for link
+                    var link = document.createAttribute("href");
+                    link.value = src;
+                    
+                    //creates data-type attributes
+                    var type = document.createAttribute("data-type");
+                    type.value = "image";
 
-                //creates anchor element
-                var anchor = document.createElement("a");
+                    //creates data-type attributes
+                    var liID = document.createAttribute("id");
+                    liID.value = idNum;
+                    idNum++;
+
+                    //creates img element
+                    var image = document.createElement("img");
+
+                    //creates img URL attribute
+                    var picture = document.createAttribute("src");
+                    picture.value = src;
+
+                    //appends URL to anchor HREF
+                    anchor.setAttributeNode(link);
+
+                    //appends data-type attributes to anchor
+                    anchor.setAttributeNode(type);
+                    anchor.setAttributeNode(liID);
+
+                    //appends picture URL to img element
+                    image.setAttributeNode(picture);
+
+                    //appends img element to anchor
+                    anchor.appendChild(image);
+
+                    //appends entire anchor element with img to locations div
+                    var div = document.getElementById("locations");
                 
-                //creates URL attribute for link
-                var link = document.createAttribute("href");
-                link.value = src;
-                
-                //creates data-type attribute
-                var type = document.createAttribute("data-type");
-                type.value = "image";
+                    div.appendChild(anchor);
 
-                //creates img element
-                var image = document.createElement("img");
-
-                //creates img URL attribute
-                var picture = document.createAttribute("src");
-                picture.value = src;
-
-                //appends URL to anchor HREF
-                anchor.setAttributeNode(link);
-
-                //appends data-type attribute to anchor
-                anchor.setAttributeNode(type);
-
-                //appends picture URL to img element
-                image.setAttributeNode(picture);
-
-                //appends img element to anchor
-                anchor.appendChild(image);
-
-                //appends entire anchor element with img to locations div
-                var div = document.getElementById("locations");
-            
-                div.appendChild(anchor);
-            
                 })
 
             };
         };
-
-    //pixabay API GET
-    var key = '11184612-ba39f46d40d6f65f978010ca1';
-    var url = 'https://pixabay.com/api/?key=' + key + '&q=' + location + '&image_type=photo&per_page=6'
-
-    $.ajax({
-        url: url,
-        dataType: 'json',
-    })
-        .done(function (pix) {
-
-            console.log('this is pixabay');
-            console.log(pix);
-            var zero = pix.hits[0].largeImageURL;
-            var one = pix.hits[1].largeImageURL;
-            var two = pix.hits[2].largeImageURL;
-            var tres = pix.hits[3].largeImageURL;
-            var qua = pix.hits[4].largeImageURL;
-            var five = pix.hits[5].largeImageURL;
-
-            $('#hash-0').append(" <a id='one'  href= " + one + " 'data-type='Image'></a>");
-            $("#one").append("<img src=" + one + "/>");
-
-            $('#hash-0').append(" <a id='two' href= " + two + " 'data-type='Image'></a>");
-            $('#two').append("<img src=" + two + "/>");
-
-            $('#hash-0').append(" <a id ='tres' href= " + tres + " 'data-type='Image'></a>");
-            $('#tres').append("<img src=" + tres + "/>")
-
-            $('#hash-0').append(" <a id='qua' href= " + qua + " 'data-type='Image'></a>");
-            $('#qua').append("<img src=" + qua + "/>")
-
-            $('#hash-0').append(" <a id='five' href= " + five + " 'data-type='Image'></a>");
-            $('#five').append("<img src=" + five + "/>")
-        })
-    
-    //travel API GET
-    var keys = '58c0ed11-4504-4';
-    var url = 'https://dev-sandbox-api.airhob.com/sandboxapi/flights/v1.3/search'
-    $.ajax({
-        url: url,
-        headers: {
-            'apikey': keys,
-            'mode': 'sandbox',
-            'Content-type': 'application/json'
-
-        },
-
-        method: "POST"
-    })
-        .done(function (victory) {
-            console.log("YO: " + victory);
-        })
 
     //calls images from APIs
     getLocationImage();
@@ -200,7 +145,45 @@ $(document).ready(function () {
 
     //lightbox close button links to results page
     $(document).on('hidden', 'div.uk-lightbox', function() {
-        window.top.location.href = "results.html";
+        //send info to database
+        database.ref('array/').set({
+            savedLocations
+        }, function(error) {
+            if (error) {
+                console.log("FAILED: " + errorObject.code);
+            } else {
+                console.log("Data Saved Successfully!");
+            }
+          });
+          //redirect page
+          window.top.location.href = "results.html";
     });
+
+    //grabs src code of current img and pushes to array
+    $(document).on('itemshown', 'div.uk-lightbox', function() {
+        currentImg.length = 0;
+        console.log(this);
+        var current = this.getElementsByClassName("uk-active").item(0);
+        console.log(current);
+        var img = current.getElementsByTagName("img").item(0);
+        console.log(img);
+        var src = img.getAttribute("src");
+        console.log(src);
+        currentImg.push(src);
+    });
+
+    //log R taps in lightbox and push img src to array
+    $(document).on('tap', 'a.uk-slidenav-next', function() {
+        console.log("Success!");
+        savedLocations.push(currentImg[0]);
+    });
+    
+    //log L taps and remove node
+    $(document).on('tap', 'a.uk-slidenav-previous', function() {
+        console.log("Bummer!");
+        console.log(this)
+        //NEED CODE TO REMOVE ITEM FROM DOM
+        
+         });
 
 });
