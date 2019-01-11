@@ -32,9 +32,9 @@ html {
     display: none
 }
 
-/* #locations {
+#locations {
 display: none
-} */
+}
 
 #modalBody {
     background-color: azure;

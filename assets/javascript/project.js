@@ -62,43 +62,44 @@ $(document).ready(function () {
             console.log("THIS FAILED BRO: " + errorObject.code);
 
         });
+    });
 
 
     function getLocationImage() {
         //initializes for loop to get 6 different locations
         var i;
-        for (i = 0; i < 6; i++) {  
+        for (i = 0; i < 6; i++) {
 
 
-        //generates a random location from the locations array
+            //generates a random location from the locations array
             var location = vacations[Math.floor(Math.random() * vacations.length)];
 
-        //logs location to the console
+            //logs location to the console
             console.log("random location is : " + location);
 
-        // query - Searches the Unsplash API for search term
-        // encodeURI() : for be able to consider the spaces for the list in words
-        var access_key = '8a76ab2b11add964b157a4e5b50af0f90aa2d0ff072a5cd4d0688af17224d0c2'
-        var url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=' + encodeURI(location) + '&client_id=' + access_key;
+            // query - Searches the Unsplash API for search term
+            // encodeURI() : for be able to consider the spaces for the list in words
+            var access_key = '8a76ab2b11add964b157a4e5b50af0f90aa2d0ff072a5cd4d0688af17224d0c2'
+            var url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=' + encodeURI(location) + '&client_id=' + access_key;
 
-        $.ajax({
-            url: url,
-            dataType: 'json',
-        })
-            .done(function (response) {
-                //console logs the entire response object
-                console.log(response);
+            $.ajax({
+                url: url,
+                dataType: 'json',
+            })
+                .done(function (response) {
+                    //console logs the entire response object
+                    console.log(response);
 
                     //stores URL in a variable
                     var src = response.urls.regular;
 
                     //creates anchor element
                     var anchor = document.createElement("a");
-                    
+
                     //creates URL attribute for link
                     var link = document.createAttribute("href");
                     link.value = src;
-                    
+
                     //creates data-type attributes
                     var type = document.createAttribute("data-type");
                     type.value = "image";
@@ -137,8 +138,8 @@ $(document).ready(function () {
                 })
 
 
-            };
         };
+    };
 
     //calls images from APIs
     getLocationImage();
@@ -146,25 +147,25 @@ $(document).ready(function () {
     //login modal start
     UIkit.modal('#myModal').show();
 
-   
+
     //lightbox close button links to results page
-    $(document).on('hidden', 'div.uk-lightbox', function() {
+    $(document).on('hidden', 'div.uk-lightbox', function () {
         //send info to database
         database.ref('array/').set({
             savedLocations
-        }, function(error) {
+        }, function (error) {
             if (error) {
                 console.log("FAILED: " + errorObject.code);
             } else {
                 console.log("Data Saved Successfully!");
             }
-          });
-          //redirect page
-          window.top.location.href = "match.html";
+        });
+        //redirect page
+        window.top.location.href = "match.html";
     });
 
     //grabs src code of current img and pushes to array
-    $(document).on('itemshown', 'div.uk-lightbox', function() {
+    $(document).on('itemshown', 'div.uk-lightbox', function () {
         currentImg.length = 0;
         console.log(this);
         var current = this.getElementsByClassName("uk-active").item(0);
@@ -177,17 +178,17 @@ $(document).ready(function () {
     });
 
     //log R taps in lightbox and push img src to array
-    $(document).on('tap', 'a.uk-slidenav-next', function() {
+    $(document).on('tap', 'a.uk-slidenav-next', function () {
         console.log("Success!");
         savedLocations.push(currentImg[0]);
     });
-    
+
     //log L taps and remove node
-    $(document).on('tap', 'a.uk-slidenav-previous', function() {
+    $(document).on('tap', 'a.uk-slidenav-previous', function () {
         console.log("Bummer!");
         console.log(this)
         //NEED CODE TO REMOVE ITEM FROM DOM
-        
-         });
+
+    });
 
 });
