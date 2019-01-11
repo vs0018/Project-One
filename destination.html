@@ -30,8 +30,8 @@
                 </div>
                 <div class="uk-navbar-center uk-visible@m">
                     <ul class="uk-navbar-nav">
-                        <!-- <li><a href="index.html">Swipes</a></li> -->
-                        <li class="uk-active"><a href="match.html">Destinations</a></li>
+                        <li><a href="index.html">Swipes</a></li>
+                        <li class="uk-active"><a href="match.html">Matches</a></li>
                     </ul>
                 </div>
                 <div class="uk-navbar-right">
@@ -41,15 +41,27 @@
                             <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li class="uk-nav-header uk-text-small uk-text-primary">YOUR ACCOUNT</li>
-                                    <li><a href="#"><span data-uk-icon="icon: info"></span> Summary</a></li>
+                                    <li><a href="summary.html"><span data-uk-icon="icon: info"></span> Summary</a></li>
                                     <li><a href="price.html"><span data-uk-icon="icon: refresh"></span> Payment Info</a></li>
 
                                     <li class="uk-nav-divider"></li>
-                                    <li><a href="https://www.tripadvisor.com/Inspiration"><span data-uk-icon="icon: tripadvisor"></span> Trip Inspirations</a></li>
-                                    <li><a href="match.html"><span data-uk-icon="icon: image"></span> Your Destinations</a></li>
-                                    <li class="uk-nav-divider"></li>
-                                    <li><a href="#"><span data-uk-icon="icon: sign-out"></span> Logout</a></li>
 
+                                    <li><a href="https://www.tripadvisor.com/Inspiration"><span data-uk-icon="icon: tripadvisor"></span>
+                                            Trip Inspirations</a></li>
+                                    <li><a href="destination.html"><span data-uk-icon="icon: image"></span> Your
+                                            Destinations</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><button class="uk-button uk-button-default uk-margin-medium-top" type="button"
+                                            uk-toggle="target: +">Logout</button>
+
+                                        <div uk-modal>
+                                            <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/WUl9NPPMx8s"
+                                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen uk-responsive uk-video="autoplay: inview"></iframe>
+                                            </div>
+
+                                        </div>
                                 </ul>
                             </div>
                         </li>
@@ -87,50 +99,55 @@
                 </div>
 
                 <div class="uk-width-auto@m uk-visible@m">
-                    <a class="uk-button uk-button-default" style="background-color:cornflowerblue" type="payment-form" href="#modal-center" uk-toggle><strong>Purchase the Dream</strong></a>
+                    <a class="uk-button uk-button-default" style="background-color:cornflowerblue" type="payment-form"
+                        href="#modal-center" uk-toggle><strong>Purchase the Dream</strong></a>
                     <div id="modal-center" class="uk-flex-top" uk-modal>
-                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" uk-overflow-auto> 
+                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" uk-overflow-auto>
                             <div class="uk-modal-header">
-                                    <h2 class="uk-modal-title">Sell Your Soul</h2>
-                                </div>
+                                <h2 class="uk-modal-title">Sell Your Soul</h2>
+                            </div>
                             <form action="/charge" method="post" id="payment-form">
                                 <div class="form-row inline">
-                                  <div class="col">
-                                    <label for="user">
-                                        <span uk-icon="user">Name </span><input class="uk-input uk-form-medium" id="name" name="name" required>
-                                    </label>
-                                  </div>
-                                  <div class="col">
-                                    <label for="card-number">
-                                        <span uk-icon="mail">Email </span><input class="uk-input uk-form-medium" id="email" name="email" type="email" required>
-                                    </label>
-                                  </div>
-                                </div>               
+                                    <div class="col">
+                                        <label for="user">
+                                            <span uk-icon="user">Name </span><input class="uk-input uk-form-medium" id="name"
+                                                name="name" required>
+                                        </label>
+                                    </div>
+                                    <div class="col">
+                                        <label for="card-number">
+                                            <span uk-icon="mail">Email </span><input class="uk-input uk-form-medium" id="email"
+                                                name="email" type="email" required>
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="col">
-                                  <label for="iban-element">
-                                        <span uk-icon="credit-card">Card# </span><input class="uk-input uk-form-medium" id="card" name="card" type="number" required>
-                                        
-                                  </label>
-                                  <div id="iban-element">
-                                    
-                                  </div>
+                                    <label for="iban-element">
+                                        <span uk-icon="credit-card">Card# </span><input class="uk-input uk-form-medium"
+                                            id="card" name="card" type="number" required>
+
+                                    </label>
+                                    <div id="iban-element">
+
+                                    </div>
                                 </div>
                                 <div id="bank-name"></div>
                                 <br>
-                                <button class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Submit Payment</button>
-                              
+                                <button class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Submit
+                                    Payment</button>
+
                                 <!-- Used to display form errors. -->
                                 <div id="error-message" role="alert"></div>
-                              
+
                                 <!-- Display mandate acceptance text. -->
                                 <div id="mandate-acceptance">
                                 </div>
-                              </form>
-                            
-                        <button class="uk-modal-close-default" type="payment-form" uk-close></button>
+                            </form>
+
+                            <button class="uk-modal-close-default" type="payment-form" uk-close></button>
+                        </div>
                     </div>
-            </div>
-        </div>
+                </div>
     </section>
 
     <!-- CONTENT -->

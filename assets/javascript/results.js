@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     //pixabay API GET
     var key = '11184612-ba39f46d40d6f65f978010ca1';
-    var pix_url = 'https://pixabay.com/api/?key=' + key + '&q=' + location + '&image_type=photo&per_page=6'
+    var pix_url = 'https://pixabay.com/api/?key=' + key + '&q=' + encodeURI(location) + '&image_type=photo&per_page=6'
 
     $.ajax({
         url: pix_url,

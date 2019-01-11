@@ -1,26 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Dream Meets Swipe</title>
-
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- UIKit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
-
-    <!-- Our CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main-pg-style.css" />
-
-    <!-- UIKit JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
-
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <title>Dream Meets Swipe</title>
+    <link rel="icon" href="img/favicon.ico">
+    <!-- CSS FILES -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css">
+    <style>
+        .uk-container-small {
+                max-width: 1020px;
+            }
+        </style>
 </head>
 
 <body>
@@ -36,7 +28,6 @@
                         <li><a href="index.html">Swipes</a></li>
                         <li class="uk-active"><a href="match.html">Matches</a></li>
                     </ul>
-
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
@@ -49,12 +40,13 @@
                                     <li><a href="price.html"><span data-uk-icon="icon: refresh"></span> Payment Info</a></li>
 
                                     <li class="uk-nav-divider"></li>
+
                                     <li><a href="https://www.tripadvisor.com/Inspiration"><span data-uk-icon="icon: tripadvisor"></span>
                                             Trip Inspirations</a></li>
                                     <li><a href="destination.html"><span data-uk-icon="icon: image"></span> Your
                                             Destinations</a></li>
                                     <li class="uk-nav-divider"></li>
-                                    <li><button class="uk-button uk-button-default uk-margin-medium-top" type="button"
+                                    <li><button class="uk-button uk-button-default uk-margin-top" type="button"
                                             uk-toggle="target: +">Logout</button>
 
                                         <div uk-modal>
@@ -75,46 +67,31 @@
     </header>
     <!--/HEADER-->
 
-    <!--Login modal-->
-    <div uk-modal id="myModal">
-        <div id="modalBody" class="uk-modal-dialog uk-modal-body uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-            <h3 class="uk-modal-title uk-card-title uk-text-center">Welcome!</h3>
-            <form>
-                <div class="uk-margin">
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" uk-icon="icon: user"></span>
-                        <input id="name" class="uk-input uk-form-large" type="text">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                        <input id="email" class="uk-input uk-form-large" type="text">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <button id="submit" class="uk-modal-close uk-button uk-button-primary uk-button-large uk-width-1-1">Let's
-                        Go!</button>
-                </div>
-                <!-- <div class="uk-text-small uk-text-center">
-                Not registered? <a href="#">Create an account</a>
-                </div> -->
-            </form>
+    <body>
+        <div class="uk-container uk-container-small uk-section">
+            <div class="uk-position-relative">
+                <img alt="UIkit 3" src="assets/images/DMS LOGO.png" width="280"
+                    class="uk-margin-bottom">
+
+            </div>
+
+            <hr>
+
+            <h3>Goals</h3>
+            <p>The main goal of Dream Meets Swipe <strong>is to help inspire you and go!</strong> </p>
+
+            <h3>Problems and Audience</h3>
+            <p>Young, busy, and working full time</p>
+            <p> Social media users, dating app users who like thes quick interfaces</p>
+            <p>Need inspiration and ability to book vacations easily all in one spot</p>
+            <p>Socail media users, dating app users who like these interves</p>
+            <a title="Summary" data-uk-tooltip href="#to-the-point" class="uk-hidden@m" data-uk-scroll="offset: 30; duration: 400">Reread
+                our amazing Summary!<span data-uk-icon="icon: arrow-down; ratio: 0.6"></span></a>
         </div>
-    </div>
 
-
-    <!--unsplash DIV to start lightbox-->
-    <div uk-lightbox id="locations"></div>
-
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-
-    <!-- internal JS -->
-    <script src="assets/javascript/project.js"></script>
-
-</body>
-
+        <!-- JS FILES -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
+    </body>
 
 </html>
