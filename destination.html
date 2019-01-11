@@ -13,14 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
 
     <!-- Our CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main-pg-style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/results-pg.css" />
 
     <!-- UIKit JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
-
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 </head>
 
 <body>
@@ -33,8 +30,8 @@
                 </div>
                 <div class="uk-navbar-center uk-visible@m">
                     <ul class="uk-navbar-nav">
-                        <li><a href="index.html">Swipe</a></li>
-                        <li class="uk-active"><a href="results.html">Matches</a></li>
+                        <!-- <li><a href="index.html">Swipes</a></li> -->
+                        <li class="uk-active"><a href="match.html">Destinations</a></li>
                     </ul>
                 </div>
                 <div class="uk-navbar-right">
@@ -48,7 +45,8 @@
                                     <li><a href="#"><span data-uk-icon="icon: refresh"></span> Payment Info</a></li>
                                     <li><a href="#"><span data-uk-icon="icon: settings"></span> Configuration</a></li>
                                     <li class="uk-nav-divider"></li>
-                                    <li><a href="#"><span data-uk-icon="icon: image"></span> Your Destinations</a></li>
+                                    <li><a href="https://www.tripadvisor.com/Inspiration"><span data-uk-icon="icon: tripadvisor"></span> Trip Inspirations</a></li>
+                                    <li><a href="match.html"><span data-uk-icon="icon: image"></span> Your Destinations</a></li>
                                     <li class="uk-nav-divider"></li>
                                     <li><a href="#"><span data-uk-icon="icon: sign-out"></span> Logout</a></li>
 
@@ -67,7 +65,11 @@
         <div class="uk-container">
             <div class="uk-grid uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
                 <div class="uk-width-auto">
-                    <img src="https://unsplash.it/65/65/?random" alt="" class="uk-border-circle">
+                    <div class="js-upload" uk-form-custom>
+                        <input type="file" multiple>
+                        <img src="https://unsplash.it/65/65/?random" alt="" class="uk-border-circle">
+                    </div>
+
                 </div>
                 <div class="uk-width-expand">
                     <h4 class="uk-margin-remove">Curated Matches Here....</h4>
@@ -75,12 +77,13 @@
                 <div class="uk-width-1-2 uk-width-1-5@m uk-visible@m">
                     <span class="uk-text-primary" data-uk-icon="icon:calendar; ratio: 0.8"></span><span class="uk-text-small uk-text-muted uk-text-bottom">
                         Travel From: </span><br>
-                    <span class="uk-text-large uk-text-primary">13th May 2015</span>
+                    <input id="start-date" class="uk-input uk-form-blank uk-form-large" type="date">
+
                 </div>
                 <div class="uk-width-1-2 uk-width-1-5@m uk-visible@m">
                     <span class="uk-text-primary" data-uk-icon="icon:calendar; ratio: 0.8"></span><span class="uk-text-small uk-text-muted uk-text-bottom">
                         Travel To: </span><br>
-                    <span class="uk-text-large uk-text-primary">18th May 2015</span>
+                    <input id="end-date" class="uk-input uk-form-blank uk-form-large" type="date">
                 </div>
 
                 <div class="uk-width-auto@m uk-visible@m">
@@ -100,22 +103,24 @@
                 <div>
                     <div class="uk-card uk-card-default uk-card-small">
                         <div class="uk-card-media-top">
-                            <div class="uk-inline-clip uk-transition-toggle uk-light">
-                                <img id="dest1" src="#" alt="Destination 1">
+                            <div id="zero" class="uk-inline-clip uk-transition-toggle uk-light">
+                                <img class="uk-animation-kenburns" id="hash-0" src="" alt="Destination 1">
                                 <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
                                     <div data-uk-margin class="uk-transition-slide-bottom-small">
                                         <span data-uk-icon="icon: plus; ratio: 1.3"></span>
                                     </div>
                                 </div>
-                                <a id="cover1" data-caption="Destination 1" href="https://static.photocdn.pt/images/articles/2017/04/28/iStock-516651882.jpg" class="uk-position-cover"></a>
+                                <a data-caption="Destination 1" href="https://static.photocdn.pt/images/articles/2017/04/28/iStock-516651882.jpg"
+                                    class="uk-position-cover"></a>
                             </div>
 
                         </div>
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
-                                <div class="uk-width-expand">
-                                    <h5 class="uk-margin-remove-bottom">Destination 1</h5>
-                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price Displayed here$</time></p>
+                                <div id="uno" class="uk-width-expand">
+                                    <!-- <h5 class="uk-margin-remove-bottom">Destination 1</h5> -->
+                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price
+                                            Displayed here$</time></p>
                                 </div>
                                 <div class="uk-width-auto">
                                     <div class="uk-inline">
@@ -123,10 +128,10 @@
                                         <div data-uk-dropdown="mode: click; pos:top-right">
                                             <ul class="uk-nav uk-dropdown-nav">
                                                 <li class="uk-nav-header">Share your trip</li>
-                                                <li><a href="#"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
+                                                <li><a href="https://www.facebook.com/"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
+                                                <li><a href="https://twitter.com/"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
+                                                <li><a href="https://www.instagram.com/?hl=en"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
+                                                <li><a href="https://www.behance.net/"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -141,8 +146,8 @@
                 <div>
                     <div class="uk-card uk-card-default uk-card-small">
                         <div class="uk-card-media-top">
-                            <div class="uk-inline-clip uk-transition-toggle uk-light">
-                                <img id="dest2" src="#" alt="Destination 2">
+                            <div id="one" class="uk-inline-clip uk-transition-toggle uk-light">
+                                <img class="uk-animation-kenburns" id="hash-1" src="" alt="Destination 2">
                                 <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
                                     <div data-uk-margin class="uk-transition-slide-bottom-small">
                                         <span data-uk-icon="icon: plus; ratio: 1.3"></span>
@@ -155,9 +160,10 @@
                         </div>
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
-                                <div class="uk-width-expand">
-                                    <h5 class="uk-margin-remove-bottom">Destination 2</h5>
-                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price Displayed here$</time></p>
+                                <div id="dos" class="uk-width-expand">
+                                    <!-- <h5 class="uk-margin-remove-bottom">Destination 2</h5> -->
+                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price
+                                            Displayed here$</time></p>
                                 </div>
                                 <div class="uk-width-auto">
                                     <div class="uk-inline">
@@ -165,10 +171,10 @@
                                         <div data-uk-dropdown="mode: click; pos:top-right">
                                             <ul class="uk-nav uk-dropdown-nav">
                                                 <li class="uk-nav-header">Share your Dream Trip!</li>
-                                                <li><a href="#"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
+                                                <li><a href="https://www.facebook.com/"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
+                                                <li><a href="https://twitter.com/"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
+                                                <li><a href="https://www.instagram.com/?hl=en"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
+                                                <li><a href="https://www.behance.net/"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -183,8 +189,8 @@
                 <div>
                     <div class="uk-card uk-card-default uk-card-small">
                         <div class="uk-card-media-top">
-                            <div class="uk-inline-clip uk-transition-toggle uk-light">
-                                <img id="dest3" src="#" alt="Destination 3">
+                            <div id="two" class="uk-inline-clip uk-transition-toggle uk-light">
+                                <img class="uk-animation-kenburns" id="hash-2" src="" alt="Destination 3">
                                 <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
                                     <div data-uk-margin class="uk-transition-slide-bottom-small">
                                         <span data-uk-icon="icon: plus; ratio: 1.3"></span>
@@ -197,9 +203,10 @@
                         </div>
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
-                                <div class="uk-width-expand">
-                                    <h5 class="uk-margin-remove-bottom">Destination 3</h5>
-                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price Displayed here$</time></p>
+                                <div id="three" class="uk-width-expand">
+                                    <!-- <h5 class="uk-margin-remove-bottom">Destination 3</h5> -->
+                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price
+                                            Displayed here$</time></p>
                                 </div>
                                 <div class="uk-width-auto">
                                     <div class="uk-inline">
@@ -207,10 +214,10 @@
                                         <div data-uk-dropdown="mode: click; pos:top-right">
                                             <ul class="uk-nav uk-dropdown-nav">
                                                 <li class="uk-nav-header">Share your Dream Trip!</li>
-                                                <li><a href="#"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
+                                                <li><a href="https://www.facebook.com/"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
+                                                <li><a href="https://twitter.com/"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
+                                                <li><a href="https://www.instagram.com/?hl=en"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
+                                                <li><a href="https://www.behance.net/"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -225,8 +232,8 @@
                 <div>
                     <div class="uk-card uk-card-default uk-card-small">
                         <div class="uk-card-media-top">
-                            <div class="uk-inline-clip uk-transition-toggle uk-light">
-                                <img id="dest4" src="#" alt="Destination 4">
+                            <div id="tres" class="uk-inline-clip uk-transition-toggle uk-light">
+                                <img class="uk-animation-kenburns" id="hash-3" src="" alt="Destination 4">
                                 <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
                                     <div data-uk-margin class="uk-transition-slide-bottom-small">
                                         <span data-uk-icon="icon: plus; ratio: 1.3"></span>
@@ -239,9 +246,10 @@
                         </div>
                         <div class="uk-card-header">
                             <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
-                                <div class="uk-width-expand">
-                                    <h5 class="uk-margin-remove-bottom">Destination 4</h5>
-                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price Displayed here$</time></p>
+                                <div id="qua" class="uk-width-expand">
+                                    <!-- <h5 class="uk-margin-remove-bottom">Destination 4</h5> -->
+                                    <p class="uk-text-meta uk-margin-remove"><time datetime="2016-04-01T19:00">$Price
+                                            Displayed here$</time></p>
                                 </div>
                                 <div class="uk-width-auto">
                                     <div class="uk-inline">
@@ -249,10 +257,10 @@
                                         <div data-uk-dropdown="mode: click; pos:top-right">
                                             <ul class="uk-nav uk-dropdown-nav">
                                                 <li class="uk-nav-header">Share your Dream Trip!</li>
-                                                <li><a href="#"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
-                                                <li><a href="#"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
+                                                <li><a href="https://www.facebook.com/"><span data-uk-icon="icon: facebook; ratio: 0.9"></span>Facebook</a></li>
+                                                <li><a href="https://twitter.com/"><span data-uk-icon="icon: twitter; ratio: 0.9"></span>Twitter</a></li>
+                                                <li><a href="https://www.instagram.com/?hl=en"><span data-uk-icon="icon: instagram; ratio: 0.9"></span>Instagram</a></li>
+                                                <li><a href="https://www.behance.net/"><span data-uk-icon="icon: behance; ratio: 0.9"></span>Behance</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -263,15 +271,14 @@
                     </div>
                 </div>
     </section>
-    </div>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
 
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
-
-<!-- internal JS
-<script src="assets/javascript/project.js"></script> -->
-<script src="assets/javascript/resultpg.js"></script>
+    <!-- internal JS -->
+    <!-- <script src="assets/javascript/project.js"></script> -->
+    <script src="assets/javascript/results.js"></script>
 </body>
 
 </html>

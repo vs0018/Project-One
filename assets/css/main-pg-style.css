@@ -1,13 +1,11 @@
 /* body {
    background-image: url('../images/ep_naturalblack.png');
-
 } */
 
 /* img {
    width: 350px;
    height: 350px;
    margin-bottom: 10px;
-
 } */
 
 .uk-overlay {
@@ -43,7 +41,6 @@ display: none
 }
 
 #submit {
-    background-color: gainsboro;
+      background-color: gainsboro;
     color: black;
 }
-
