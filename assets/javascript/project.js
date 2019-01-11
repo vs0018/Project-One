@@ -7,7 +7,6 @@ $(document).ready(function () {
 
     // variable list for unsplash spots 
     var vacations = [
-<<<<<<< HEAD
         "hawaii", "thailand", "barcelona,spain",
         "toronto", "japan", "morocco",
         "santa barbara", "san francisco", "the maldives",
